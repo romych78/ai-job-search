@@ -115,12 +115,11 @@ When the role sits outside your home domain, **lead with the domain-transfer arg
 
 **Create 2-3 profile statement templates for your main role types:**
 
-<!-- SETUP: These are populated based on your background -->
-**For [YOUR_PRIMARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_1]
+**For CTO / VP Engineering / VP Technology roles:**
+> Engineering leader with 14+ years as CTO and VP Technology at German B2C startups. Built engineering teams from scratch, owned technology strategy end-to-end, and delivered two successful company acquisitions. Hands-on technical background in backend architecture, cloud infrastructure, and system design. Experienced in full due diligence cycles, both as a seller and as an investor. Known for building high-trust, pragmatic teams that ship consistently.
 
-**For [YOUR_SECONDARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_2]
+**For Director of Engineering / R&D roles at larger organizations:**
+> Engineering leader transitioning from sole-technology-executive roles at startups into larger engineering organizations. Currently managing 20 engineers within a 400-person org at [Company] following an acquisition, translating company-wide priorities into team-level execution. Brings a track record of building teams and technology strategy from zero, now applied to scaling within an established structure. Hands-on architecture background (microservices, Kubernetes, cloud-hybrid infrastructure) paired with distributed-team leadership across in-house, remote, and freelance contributors.
 
 Statements labeled *[Used for: <company>_<role>]* were extracted from archived application drafts by `/setup` Path A. They are **phrasing references, never fact sources**: when drafting from one, every factual claim still comes from `01-candidate-profile.md` - a past tailored draft does not vouch for its own accuracy.
 

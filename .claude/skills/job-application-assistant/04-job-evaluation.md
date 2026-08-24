@@ -60,9 +60,9 @@ How well do the required/preferred skills align with the candidate's capabilitie
 | 40-59 | Partial match, significant upskilling needed |
 | 0-39 | Fundamental mismatch |
 
-**Strong match areas:** [YOUR_PRIMARY_SKILLS]
-**Moderate match areas:** [YOUR_SECONDARY_SKILLS]
-**Weak match areas:** [SKILLS_YOU_LACK]
+**Strong match areas:** Engineering leadership (hiring, budget, org-building from zero), technology strategy, technical due diligence/M&A, microservices/SOA architecture, Kubernetes and cloud-hybrid infrastructure, PHP, remote-first distributed team leadership
+**Moderate match areas:** Python/ML tooling (scikit-learn, categorization pipelines), React Native mobile delivery, Java/Angular (recent stack at Similarweb/XPLN), CI/CD and observability tooling
+**Weak match areas:** Large-scale enterprise governance/compliance processes (career has been startup/scale-up only), formal people-management frameworks beyond what a sole tech exec self-taught
 
 ### 2. Experience Match (0-100)
 Does work history align with what they're looking for?
@@ -74,9 +74,9 @@ Does work history align with what they're looking for?
 | 40-59 | Adjacent experience, would need to make the case |
 | 0-39 | Unrelated experience |
 
-**Strong:** [YOUR_DIRECT_EXPERIENCE_DOMAINS]
-**Moderate:** [YOUR_ADJACENT_EXPERIENCE]
-**Entry-level:** [ROLES_WITH_LIMITED_EXPERIENCE]
+**Strong:** CTO / VP Engineering / VP Technology / Director of Engineering or R&D roles, especially sole-tech-exec or first-technical-hire situations, and roles involving M&A due diligence or post-acquisition integration
+**Moderate:** Larger-org Director/Head of Engineering roles within a bigger engineering organization (a newer direction per his stated career goals - direct evidence is his current Similarweb role, started Jan 2026)
+**Entry-level:** Individual-contributor Principal Engineer / Chief Architect roles - technically capable but no recent track record of a pure-IC role (has been a leader since 2012)
 
 ### 3. Behavioral/Culture Fit (0-100)
 Does the role and company culture match the behavioral profile?
@@ -91,9 +91,14 @@ Does the role and company culture match the behavioral profile?
 **Red flags to research:** Department disorganization, work dominated by maintenance over development, poor chemistry with leadership, culture mismatches. Check reviews, media coverage, LinkedIn connections, and network contacts for insider perspective.
 
 ### 4. Location & Logistics (Pass/Fail + Notes)
-- Within commute range: PASS
-- Remote with occasional office: PASS
-- Requires relocation: FAIL (deal-breaker)
+
+Home base: Türkheim, Bavaria (86842).
+
+- Fully remote: PASS
+- Hybrid with office in Augsburg, Memmingen, or Mindelheim (~50km of Türkheim): PASS
+- Hybrid with office in Munich (~85km): PASS - named last-resort exception, not a blanket "Munich area" allowance
+- Hybrid with office in any other city, or requires relocation: FAIL (deal-breaker) - do not round up to PASS on skill/culture strength alone
+- Remote/hybrid policy not stated in the posting: FLAG - note as unverified and check before drafting, don't assume either way
 - Frequent international travel: FLAG (discuss with user)
 
 ### 5. Career Alignment & Motivation (0-100)
@@ -107,19 +112,19 @@ Does this role advance career goals and contain tasks that energize?
 | 0-39 | Dead end or backwards step |
 
 **Career goals:**
-- [YOUR_CAREER_GOAL_1]
-- [YOUR_CAREER_GOAL_2]
-- [YOUR_CAREER_GOAL_3]
+- Continue on the CTO / VP Engineering / Engineering Director track
+- Move toward larger-scale organizations - own a bigger slice of a larger engineering org rather than being the sole tech exec of an early-stage startup
+- Stay hands-on: architecture and systems-level involvement, not purely people-management
 
 **Motivation filter:** Evaluate not just whether you *can* do the tasks, but whether the tasks will *energize* you. Consider:
-- Tasks that energize: [YOUR_ENERGIZING_TASKS]
-- Tasks that drain: [YOUR_DRAINING_TASKS]
-- Non-task factors: leadership style, department culture, company values, degree of autonomy
+- Tasks that energize: legacy modernization, ambiguous/messy technical problems (performance, cost, reliability), building teams and processes from scratch, technical due diligence/M&A, mentoring and explaining complex tech to non-technical stakeholders
+- Tasks that drain: roles dominated by pure maintenance with no new development, environments with no direct executive access or architecture influence
+- Non-task factors: remote-first / distributed-team culture, leadership by example, autonomy with direct executive access
 
 **Life situation alignment:** Consider personal constraints:
-- **Security**: [YOUR_FINANCIAL_SITUATION_CONTEXT]
-- **Flexibility**: [YOUR_SCHEDULE_CONSTRAINTS]
-- **Professional development**: [YOUR_GROWTH_PRIORITIES]
+- **Security**: Baseline compensation expectation around EUR 130k/year for benchmarking - not a hard floor, discuss per offer
+- **Flexibility**: Remote-first; hybrid only within ~50km of Türkheim (86842) - Augsburg, Memmingen, Mindelheim - or Munich (~85km) as a named last-resort exception; no relocation
+- **Professional development**: Prioritizes roles that grow scope within larger organizations while staying hands-on with architecture
 
 ### 6. Salary Benchmark (Optional)
 

@@ -1,4 +1,4 @@
-%% Example CV - [YOUR_NAME]
+%% Example CV - Roman Ignatov
 %% Comprehensive overview of all competencies, experience, and achievements.
 %% Use as a master reference when tailoring role-specific CVs.
 %%
@@ -24,18 +24,19 @@
     linkcolor=blue,
     filecolor=magenta,
     urlcolor=blue,
-    pdftitle={[YOUR_NAME] - CV},
+    pdftitle={Roman Ignatov - CV},
     pdfpagemode=FullScreen,
 }
 \usepackage[scale=0.80]{geometry}
 \usepackage{import}
+\usepackage{needspace}
 
 % personal data
-\name{[First]}{[Last]}
-\address{[Your Address, City, Country]}{}{}
-\phone[mobile]{[+XX XXXXXXXXXX]}
-\email{[your.email@example.com]}
-\extrainfo{\href{[https://linkedin.com/in/your-profile]}{LinkedIn}, \href{[https://github.com/your-username]}{GitHub}}
+\name{Roman}{Ignatov}
+\address{Bavaria, Germany}{}{}
+\phone[mobile]{+49 157 375 52701}
+\email{ignatov.roman@gmail.com}
+\extrainfo{\href{https://www.linkedin.com/in/romanignatov/}{LinkedIn}}
 
 \begin{document}
 
@@ -46,7 +47,7 @@
 % ============================================================
 
 \vspace{6pt}
-\small{[Write a 3-5 line profile statement tailored to the role you're applying for. Focus on what makes you uniquely qualified. Example: "Data scientist with a PhD in [field] and X years of industry experience. Combines deep domain expertise in [domain] with strong applied machine learning and Python development skills. Experienced in developing end-to-end ML pipelines, from data ingestion to stakeholder-facing dashboards."]}
+\small{Engineering leader with 14+ years as CTO and VP Technology at German B2C startups. Built engineering teams from scratch, owned technology strategy end-to-end, and delivered two successful company acquisitions. Hands-on technical background in backend architecture, cloud infrastructure, and system design. Experienced in full due diligence cycles, both as a seller and as an investor. Known for building high-trust, pragmatic teams that ship consistently.}
 
 % ============================================================
 %     CORE COMPETENCIES
@@ -56,15 +57,15 @@
 \vspace{1pt}
 \begin{itemize}
 
-\item \textbf{[Skill Category 1]}: [Specific skills, frameworks, tools. Be concrete.]
+\item \textbf{Leadership}: Engineering team building, hiring \& firing, budget ownership, technology strategy, technical due diligence (M\&A)
 
-\item \textbf{[Skill Category 2]}: [Specific skills, frameworks, tools.]
+\item \textbf{Architecture}: Microservices, SOA, monolith decomposition, REST API design, system scalability, database architecture
 
-\item \textbf{[Skill Category 3]}: [Specific skills, frameworks, tools.]
+\item \textbf{Infrastructure}: Kubernetes (self-managed), Docker Swarm, Google Cloud, Hetzner, CI/CD (GitLab CI, Jenkins)
 
-\item \textbf{[Skill Category 4]}: [Domain expertise, methods, approaches.]
+\item \textbf{Development}: PHP, Python (scikit-learn), JavaScript, Java, Angular; React Native (mobile delivery)
 
-\item \textbf{[Skill Category 5]}: [Tools, platforms, software.]
+\item \textbf{Data \& Monitoring}: MySQL, PostgreSQL, MongoDB, ClickHouse, Elasticsearch, Grafana, Prometheus, NewRelic
 
 \end{itemize}
 
@@ -77,31 +78,43 @@
 \begin{itemize}
 
 % --- Most Recent Role ---
-\item{\cventry{[YYYY-Present]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\needspace{5\baselineskip}
+\item{\cventry{Jan 2026-Present}{Director of R\&D}{Similarweb}{Bavaria, Germany (remote)}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1 - be specific, use numbers where possible]
-    \item [Achievement or responsibility 2]
-    \item [Achievement or responsibility 3]
-    \item [Achievement or responsibility 4]
+    \item Managing a team of 20 engineers within a 400-person engineering organization, following the acquisition of XPLN GmbH
+    \item Reporting to VP R\&D; responsible for technical delivery, team health, and execution against roadmap
+    \item Working across business units to align engineering output with company-wide priorities
 \end{itemize}}}
 
 \vspace{3pt}
 
 % --- Previous Role ---
-\item{\cventry{[YYYY-YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\needspace{5\baselineskip}
+\item{\cventry{Feb 2022-Present}{VP Technology (de facto CTO)}{XPLN GmbH}{Munich, Germany}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1]
-    \item [Achievement or responsibility 2]
-    \item [Achievement or responsibility 3]
+    \item Sole technology executive; full ownership of engineering, product infrastructure, hiring, budget, and tech strategy; reported directly to CEO
+    \item Managed two full technical due diligence processes as seller; company successfully acquired January 2026
+    \item Oversaw infrastructure migration to Kubernetes on production systems
 \end{itemize}}}
 
 \vspace{3pt}
 
 % --- Earlier Role ---
-\item{\cventry{[YYYY-YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\needspace{5\baselineskip}
+\item{\cventry{Feb 2018-Jan 2022}{CTO}{LIBIFY Technologies GmbH}{Munich, Germany}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1]
-    \item [Achievement or responsibility 2]
+    \item Led production migration from Proxmox to Kubernetes on a live system, with no downtime
+    \item Delivered a React Native mobile application (iOS + Android) alongside core backend work
+\end{itemize}}}
+
+\vspace{3pt}
+
+\needspace{5\baselineskip}
+\item{\cventry{Jun 2012-Feb 2018}{CTO}{Regiondo GmbH}{Munich, Germany}{}{\vspace{1pt}
+\begin{itemize}
+    \item First technical hire; built the entire engineering organization and product infrastructure from zero
+    \item Evolved system architecture: monolith to service-oriented architecture to Docker Swarm
+    \item Managed two due diligence cycles as seller; company was partially and then fully acquired
 \end{itemize}}}
 
 \end{itemize}
@@ -114,14 +127,8 @@
 \vspace{1pt}
 \begin{itemize}
 
-\item{\cventry{[YYYY-YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-Thesis: ``[Thesis Title].'' [Brief description of research focus.]
-}}
-
-\vspace{3pt}
-
-\item{\cventry{[YYYY-YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-[Brief description or key topics.]
+\item{\cventry{1993-2001}{Master's in Pedagogy and Education}{Mykolajiv State Pedagogical University}{Mykolaiv, Ukraine}{}{\vspace{1pt}
+4 years pedagogical college, then Master's degree 1997-2001.
 }}
 
 \end{itemize}
@@ -133,27 +140,7 @@ Thesis: ``[Thesis Title].'' [Brief description of research focus.]
 \section{Languages}
 \vspace{1pt}
 \begin{itemize}
-\item [Language 1] (native), [Language 2] (fluent), [Language 3] (intermediate).
-\end{itemize}
-
-% ============================================================
-%     PUBLICATIONS (optional)
-% ============================================================
-
-\section{Publications}
-\vspace{1pt}
-\begin{itemize}
-\item [Author(s)] ([Year]). [Title]. [Journal/Conference]. \href{[DOI_URL]}{DOI link}
-\end{itemize}
-
-% ============================================================
-%     HONORS AND AWARDS (optional)
-% ============================================================
-
-\section{Honors and Awards}
-\vspace{1pt}
-\begin{itemize}
-\item{\textbf{[Award Name]} -- [Event/Organization] ([Year]).}
+\item Ukrainian (native), Russian (native), English (professional working proficiency), German (B1).
 \end{itemize}
 
 % ============================================================

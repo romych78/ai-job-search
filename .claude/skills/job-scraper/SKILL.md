@@ -97,6 +97,23 @@ fields manually. If it returns HTTP 403, retry with browser headers via curl per
 `.claude/skills/job-application-assistant/09-web-research.md` before giving up — most
 bank and corporate sites reject WebFetch's user agent while serving browsers normally.
 
+**Determine work mode (remote/hybrid/onsite) for every candidate — this always gets
+shown, not just fetched for high-fit jobs.** Resolution order:
+1. A `work_mode` field in the CLI's search/detail JSON (e.g. `freehire-search` returns
+   this natively) — use it as-is.
+2. The query's own `--remote`/mode filter, if the portal only returns results matching
+   that filter (weak signal — confirm against the listing text when in doubt).
+3. Explicit wording in the title, snippet, or detail description ("remote", "hybrid",
+   "vor Ort", "Home Office", a specific office city named as a requirement).
+4. If none of the above resolve it, record `"Unknown"` rather than guessing either way
+   — an unresolved mode is itself information the user needs (see Step 5's Mode column
+   and `04-job-evaluation.md`'s Location & Logistics gate, which now flags "not stated"
+   separately from PASS/FAIL).
+
+For a hybrid result, also capture **which city the office is in** — the Location &
+Logistics gate scores hybrid roles against a specific ~50km radius (plus a named Munich
+exception), so "hybrid" alone isn't enough to score it.
+
 **Store a URL that actually resolves to the posting.** A listing-page URL with a
 `#fragment` appended (`.../jobs/ciso/#ikerian`) is not a posting: it fetches fine and
 returns unrelated job titles, which makes every later `/rank` and `/apply` run fail on
@@ -137,13 +154,17 @@ For each new job, do a rapid fit check (NOT the full evaluation from `04-job-eva
       "first_seen": "YYYY-MM-DD",
       "fit": "high/medium/low",
       "status": "new/skipped/evaluated/ranked/expired",
-      "portal": "<source portal skill, e.g. jobindex-search>"
+      "portal": "<source portal skill, e.g. jobindex-search>",
+      "work_mode": "remote/hybrid/onsite/unknown",
+      "office_city": "<city, only when work_mode is hybrid or onsite>"
     }
   }
 }
 ```
 
 The `portal` field records which CLI skill produced the job (results are already tagged per portal in Step 1b - persist that tag here). Entries written before this field existed lack it; the health check (Step 4.75) attributes those by matching the URL's domain against each portal's base URL, so do not backfill.
+
+The `work_mode`/`office_city` fields record what Step 2 resolved. Entries written before these fields existed simply lack them - don't backfill by guessing; only resolve them the next time that entry is touched (e.g. a `/rank` or `/apply` run that fetches detail anyway).
 
 `/rank` extends this schema additively: ranked entries also carry `rank_score` (0–100 overall score), `rank_verdict` (fit band, e.g. "strong fit"), `rank_date` (ISO date of ranking), and `strengths`/`gaps` (1-3 verbatim bullets each, copied from the scoring agent's findings). The `status` field is set to `"ranked"`. Do not drop any of these fields when re-writing entries. Entries ranked before `strengths`/`gaps` existed simply lack them; readers tolerate their absence and never backfill by guessing.
 
@@ -210,9 +231,11 @@ skipped (disabled): <portal-name>, <portal-name>
 health: <portal-name> - degraded (company null on all 12 results); parsing anchors in .agents/skills/<portal-name>/url-reference.md
 health: <portal-name> - broken (0 results for the SKILL.md test query and a broader retry); parsing anchors in .agents/skills/<portal-name>/url-reference.md
 
-| # | Fit | Title | Company | Location | Deadline | URL |
-|---|-----|-------|---------|----------|----------|-----|
-| 1 | High | ... | ... | ... | ... | [Link](...) |
+| # | Fit | Title | Company | Location | Mode | Deadline | URL |
+|---|-----|-------|---------|----------|------|----------|-----|
+| 1 | High | ... | ... | ... | Remote / Hybrid (Augsburg) / Onsite / Unknown | ... | [Link](...) |
+
+The Mode column is mandatory on every row, not just high-fit ones - use exactly `Remote`, `Hybrid (<office city>)`, `Onsite (<city>)`, or `Unknown` (never leave it blank). This is what lets the Location & Logistics gate's ~50km/Munich-exception rule (see `04-job-evaluation.md`) actually get applied at a glance instead of re-derived from a location string.
 
 If Step 2.5 flagged a mass-posting pattern, note it in the Title cell (e.g. "Frontend Developer (posted in 6 cities)") rather than burying it. Do the same for a declared-language-insufficient-level flag from the Language Gate (e.g. "Backend Engineer ⚠ fluent English required") - both are signals the user should see at a glance, not just in the detail highlights below.
 

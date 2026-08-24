@@ -39,6 +39,59 @@ Keep answers to 1-2 minutes. Be specific. End with what you learned or would do 
 
 <!-- Add more STAR examples as needed. Aim for 4-6 covering different competencies. -->
 
+## STAR Candidates (Complete Manually)
+<!-- Extracted from CV/LinkedIn by /setup Path A. Not full STAR examples - fill in S/T/A/R detail before using in an interview. -->
+
+### Live Proxmox-to-Kubernetes migration (LIBIFY)
+**Source:** CV / LinkedIn - CTO, LIBIFY Technologies GmbH
+**What happened:** Led a production migration from Proxmox to Kubernetes on a live system with no downtime.
+**Why it matters:** Answers questions about technical risk management, infrastructure modernization, and hands-on execution under pressure.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### Building an engineering organization from zero (Regiondo)
+**Source:** CV - CTO, Regiondo GmbH
+**What happened:** Joined as the first technical hire of a leisure-tech booking platform and built the entire engineering organization, hiring process, and product infrastructure from scratch.
+**Why it matters:** Answers questions about 0-to-1 org building, hiring philosophy, and establishing engineering culture.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### Architecture evolution: monolith to SOA to Docker Swarm (Regiondo)
+**Source:** CV - CTO, Regiondo GmbH
+**What happened:** Designed and evolved the system architecture from a monolith to a service-oriented architecture, then to Docker Swarm, while the business kept operating.
+**Why it matters:** Answers questions about architecture decision-making, managing technical debt, and phased migrations.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### Two M&A due diligence exits as seller (Regiondo, XPLN)
+**Source:** CV - CTO/VP Technology, Regiondo GmbH and XPLN GmbH
+**What happened:** Managed technical due diligence processes as the seller's technology lead across three total exits: Regiondo (partial then full acquisition) and XPLN (acquired by Similarweb, January 2026).
+**Why it matters:** Answers questions about high-stakes cross-functional work, handling scrutiny of your own systems, and operating under external pressure/deadlines.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### Stepping into a larger organization post-acquisition (Similarweb)
+**Source:** CV / LinkedIn - Director of R&D, Similarweb
+**What happened:** After XPLN's acquisition, took on management of a 20-engineer team inside a 400-person engineering organization, moving from sole-tech-exec autonomy to operating within an established larger structure.
+**Why it matters:** Answers questions about adapting leadership style to a bigger org, navigating post-acquisition integration, and reporting into an existing management layer for the first time.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
 ## Common Tough Questions
 
 ### "Why did you leave [previous company]?"

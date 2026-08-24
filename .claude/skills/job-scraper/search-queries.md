@@ -12,66 +12,72 @@ The `site:` query templates in this file are the **WebSearch fallback** — for 
 
 ## Search Sites
 
-Primary (your market's job boards - scaffold one with `/add-portal`):
-- **[YOUR_JOB_BOARD]** - your market's largest general job board
-- **linkedin.com/jobs** - LinkedIn job listings (filter: [YOUR_COUNTRY] / [YOUR_CITY]); also covered by `linkedin-search` CLI
-- **[YOUR_INDUSTRY_JOB_BOARD]** - a niche/industry board for your field (optional)
-- **[YOUR_ADDITIONAL_JOB_BOARD]** - another major board for your market (optional)
+Primary (default + German-market CLIs):
+- **linkedin.com/jobs** - LinkedIn job listings (filter: Germany / remote); covered by `linkedin-search` CLI
+- **freehire-search** - country-agnostic CLI, covers general listings
+- **stepstone.de** - Germany's largest general job board; covered by `stepstone-search` CLI (page 1 only, no age filter - see its SKILL.md)
+- **de.indeed.com** - covered by `indeed-de-search` CLI (search only; `detail` sits outside Indeed's robots.txt allowance for a generic bot - personal use only, see its SKILL.md)
+- **xing.com** - DACH-region professional network; covered by `xing-search` CLI (its job-search path sits outside Xing's robots.txt allowance for a generic bot - personal use only, see its SKILL.md)
 
 Secondary (company career pages via Google):
-- Direct Google searches with `site:` filters for known target companies
+- Direct Google searches with `site:` filters; no specific target companies tracked - casting a wide net rather than monitoring named employers
+- Fallback `site:` filters for the three German-market portals, in case a CLI is temporarily unavailable:
+  - `site:stepstone.de "<role>"`
+  - `site:de.indeed.com "<role>"`
+  - `site:xing.com/jobs "<role>"`
 
 ## Query Categories
 
 Queries are grouped by priority. Write **each category in every language from your Languages table** (see Language scope above). Combine each query with your location terms (e.g. your city, region, or metro area) where the site supports it.
 
-### Priority 1: [YOUR_PRIMARY_ROLE_TYPE]
+### Priority 1: CTO / VP Engineering / VP Technology
 
-These match your strongest and most desired career direction.
-
-```
-site:[YOUR_JOB_BOARD] "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_KEY_SKILL]" [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_COUNTRY]
-```
-
-### Priority 2: [YOUR_DOMAIN_EXPERTISE]
-
-These match your domain expertise.
+These match Roman's strongest and most desired career direction - sole or top-level technical executive roles.
 
 ```
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] OR [YOUR_REGION]
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_2] [YOUR_COUNTRY]
-site:linkedin.com/jobs [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] [YOUR_COUNTRY]
+site:linkedin.com/jobs "CTO" remote Germany
+site:linkedin.com/jobs "VP Engineering" remote Germany
+site:linkedin.com/jobs "VP Technology" remote Germany
+"Chief Technology Officer" remote Germany -site:linkedin.com
 ```
 
-### Priority 3: [YOUR_ADJACENT_ROLE_TYPE]
+### Priority 2: Director of Engineering / Director of R&D
 
-Adjacent roles you could pivot into.
-
-```
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_1]" [YOUR_KEY_SKILL] [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_2]" [YOUR_KEY_SKILL] [YOUR_CITY]
-```
-
-### Priority 4: Broader Technical / Consulting
-
-Wider net for general technical roles.
+Senior leadership within a larger engineering org - Roman's newer stated direction (matches his current Similarweb role).
 
 ```
-site:[YOUR_JOB_BOARD] [YOUR_KEY_SKILL] developer [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_KEY_SKILL] developer" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "technical consultant" [YOUR_DOMAIN] [YOUR_CITY]
+site:linkedin.com/jobs "Director of Engineering" remote Germany
+site:linkedin.com/jobs "Director of R&D" remote Germany OR "R&D Director" remote Germany
+"Head of Engineering" remote Germany -site:linkedin.com
+```
+
+### Priority 3: Domain-adjacent leadership roles
+
+Adjacent domains where his background transfers directly.
+
+```
+"VP Engineering" "data platform" remote Germany
+"CTO" "e-commerce" remote Germany
+"Engineering Director" "analytics platform" remote Germany
+```
+
+### Priority 4: Broader technical leadership
+
+Wider net for general senior technical leadership roles, in case title conventions differ.
+
+```
+site:linkedin.com/jobs "Engineering Manager" Kubernetes remote Germany
+"Principal Engineer" OR "Chief Architect" remote Germany -site:linkedin.com
 ```
 
 ## Location Filter
 
-When evaluating results, verify the job location is within reasonable commute distance from your home. Define acceptable areas:
-- [YOUR_CITY] and surrounding areas
-- [ACCEPTABLE_AREA_1]
-- [ACCEPTABLE_AREA_2]
-- [BORDERLINE_AREA] (borderline - ~X min by transit)
-- [TOO_FAR_AREA] (too far)
+Home base: Türkheim, Bavaria (86842). Remote-first search; a hybrid role is only acceptable if the office sits within roughly 50km of Türkheim - Munich is a named exception (see below) despite being further. Define acceptable areas:
+- Fully remote (Germany, EU, or global) - ideal
+- Hybrid with office in Augsburg, Memmingen, or Mindelheim (all within ~50km of Türkheim) - acceptable
+- Hybrid with office in Munich - acceptable as a last resort despite exceeding 50km (~85km) - explicitly named exception, not a blanket "Munich area" allowance
+- Hybrid with office anywhere else, or any role requiring relocation - too far (deal-breaker, see CLAUDE.md) - do not present these as medium/high fit even if skills match well
+- When a posting's remote/hybrid policy is unclear from the listing, flag it rather than assuming either way
 
 ## Language Filter
 

@@ -1,10 +1,7 @@
-# Job Application Assistant for [YOUR_NAME]
-
-<!-- SETUP: This file is populated by running /setup -->
-<!-- After running /setup, all [PLACEHOLDER] tokens will be replaced with your actual information -->
+# Job Application Assistant for Roman Ignatov
 
 ## Role
-This repo is a job application workspace. Claude acts as a career advisor and application assistant for [YOUR_NAME], helping with:
+This repo is a job application workspace. Claude acts as a career advisor and application assistant for Roman Ignatov, helping with:
 1. **Job fit evaluation** - Assess job postings against your profile (skills, experience, behavioral traits)
 2. **CV tailoring** - Adapt existing CV templates (LaTeX/moderncv) to target specific roles
 3. **Cover letter writing** - Draft targeted cover letters using existing templates (LaTeX)
@@ -13,79 +10,85 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 
 ## Candidate Profile
 
-<!-- This section is auto-populated by /setup. You can also fill it in manually. -->
-
 ### Identity
-- **Name:** [YOUR_NAME]
-- **Location:** [YOUR_CITY], [YOUR_COUNTRY] ([YOUR_COMMUTE_CONSTRAINTS])
+- **Name:** Roman Ignatov
+- **Location:** Türkheim, Bavaria, Germany, 86842 (remote-first; hybrid acceptable only within ~50km - Augsburg, Memmingen, Mindelheim - with Munich (~85km) allowed as a last-resort exception)
 - **Languages:**
   | Language | Level |
   |----------|-------|
-  | [LANGUAGE] | [LEVEL] |
+  | English | Professional working proficiency |
+  | German | B1 (German citizenship) |
+  | Ukrainian | Native |
+  | Russian | Native |
   <!-- Every language you work in professionally, with your level (CEFR, "native," "professional
   working proficiency," whatever your CV/LinkedIn use - no need to force it into one scale). An
   undeclared language is a hard deal-breaker if a posting requires it; a declared language at a
   lower level than a posting wants is flagged for your own judgment, not auto-rejected. See
   04-job-evaluation.md's Language Gate. -->
-- **CV language:** [YOUR_CV_LANGUAGE] <!-- English unless your market expects otherwise; /setup asks -->
+- **CV language:** English
 
-- **Status:** [YOUR_EMPLOYMENT_STATUS]
-- **LinkedIn headline:** "[YOUR_LINKEDIN_HEADLINE]"
+- **Status:** Employed - Director of R&D at Similarweb (since Jan 2026), concurrently VP Technology at XPLN GmbH (since Feb 2022) during acquisition integration
+- **LinkedIn headline:** "VP Tech at XPLN | R&D Director at Similarweb | VP Engineering / CTO | Remote-first engineering orgs | Data & analytics platforms"
 
 ### Education
-<!-- List your degrees, most recent first -->
-- **[DEGREE_LEVEL] in [FIELD]** ([YEAR_START]-[YEAR_END]) - [INSTITUTION]
-  - Thesis: "[THESIS_TITLE]"
-  - Topics: [KEY_TOPICS]
+- **Master's in Pedagogy and Education** (1993-2001) - Mykolajiv State Pedagogical University
+  - 4 years pedagogical college, then Master's degree 1997-2001
 
 ### Professional Experience
-<!-- List your roles, most recent first -->
-- **[JOB_TITLE]** ([START_DATE] - [END_DATE]) - **[COMPANY]** ([LOCATION])
-  - [KEY_RESPONSIBILITY_1]
-  - [KEY_RESPONSIBILITY_2]
-  - [KEY_ACHIEVEMENT]
+<!-- Full history with bullets lives in .claude/skills/job-application-assistant/01-candidate-profile.md -->
+- **Director of R&D** (Jan 2026 - Present) - **Similarweb** (registered in New York, US; remote from Bavaria)
+- **VP Technology (de facto CTO)** (Feb 2022 - Present) - **XPLN GmbH** (Munich, Germany) - concurrent with the Similarweb role
+- **CTO** (Feb 2018 - Jan 2022) - **LIBIFY Technologies GmbH** (Munich, Germany)
+- **CTO** (Jun 2012 - Feb 2018) - **Regiondo GmbH** (Munich, Germany)
+- Earlier: Magento Inc. (2008-2011), ONYX Enterprise, Webmasters International, Infocreek (2003-2007)
 
 ### Technical Skills
-- **Primary:** [YOUR_PRIMARY_SKILLS]
-- **Secondary:** [YOUR_SECONDARY_SKILLS]
-- **Domain:** [YOUR_DOMAIN_EXPERTISE]
-- **Software:** [YOUR_TOOLS_AND_SOFTWARE]
+- **Primary:** Engineering leadership, technology strategy, technical due diligence (M&A), architecture (microservices, SOA, monolith decomposition), Kubernetes, cloud-hybrid infrastructure
+- **Secondary:** PHP, Python (scikit-learn), JavaScript, Java, Angular, React Native, CI/CD (GitLab CI, Jenkins)
+- **Domain:** E-commerce (Magento ecosystem), IoT/embedded integration, data & analytics platforms
+- **Software:** MySQL, PostgreSQL, MongoDB, ClickHouse, Elasticsearch, Redis, Grafana, Prometheus, NewRelic, YouTrack, GitLab, Jenkins, Git
 
 ### Certifications
-<!-- List relevant certifications with dates -->
-- **[CERTIFICATION_NAME]** - [HOURS]h - completed [DATE]
+- **Reliable Google Cloud Infrastructure: Design and Process**
+- **Essential Google Cloud Infrastructure: Foundation**
+- **Leading through Challenges: Strategies for Executive Leaders**
+- **Leaders: Five Tips for Establishing Team Processes**
+- **Chief Technology Officer Career Guide**
 
 ### Publications
-<!-- List peer-reviewed publications, if any -->
-- [AUTHOR_LIST] ([YEAR]). [TITLE]. [JOURNAL].
+None reported.
 
 ### Awards
-<!-- List relevant awards, hackathons, competitions -->
-- [AWARD_NAME] - [EVENT] ([YEAR])
+None reported.
 
 ### Behavioral Profile
-<!-- Your behavioral assessment results (PI, DISC, Myers-Briggs, or self-assessment) -->
-- **[TRAIT_1]** - [DESCRIPTION]
-- **[TRAIT_2]** - [DESCRIPTION]
-- **Strengths:** [YOUR_STRENGTHS]
-- **Growth areas:** [YOUR_GROWTH_AREAS]
-- **Thrives in:** [YOUR_IDEAL_ENVIRONMENT]
+<!-- No formal assessment on file; the traits below are inferred from LinkedIn/CV self-description - see 02-behavioral-profile.md for detail and caveats -->
+- **Hands-on technical leadership** - stays close to code and architecture rather than pure people-management
+- **Teaching/simplifying complex topics** - pedagogical background shows up in how he explains tech to non-technical stakeholders
+- **Strengths:** Building engineering orgs from zero, leading distributed/remote teams, technical due diligence through M&A exits, legacy modernization (e.g. live Proxmox-to-Kubernetes migration with no downtime)
+- **Growth areas:** Not yet gathered - ask directly rather than infer from self-promotional material
+- **Thrives in:** Remote-first distributed teams, direct executive access (sole tech exec reporting to CEO), ambiguous/messy technical problems over well-specified maintenance work
 
 ### What Excites You
-<!-- What motivates you professionally -->
-- [PASSION_1]
-- [PASSION_2]
+- Solving "messy" problems: legacy rescue, performance bottlenecks, cost optimization, reliability improvements
+- Building and scaling engineering organizations and their processes from the ground up
+- Continuous learning - roughly one new language/framework per year
+- Mentoring and explaining complex technical topics to non-technical stakeholders
 
 ### Target Sectors
-<!-- Industries and companies you're targeting -->
-- [SECTOR_1]: [EXAMPLE_COMPANIES]
-- [SECTOR_2]: [EXAMPLE_COMPANIES]
+- No specific target companies - casting a wide net
+- Natural adjacency: data & analytics platforms (current domain), e-commerce/booking/travel-tech (background fit)
 
 ### Deal-breakers
 <!-- Hard constraints on job search. Language requirements are handled separately and
 automatically from your Languages table above - don't duplicate them here. -->
-- [DEALBREAKER_1]
-- [DEALBREAKER_2]
+- Must be remote or remote-first. A hybrid role is only acceptable if the office is within ~50km of Türkheim (86842) - Augsburg, Memmingen, or Mindelheim - or Munich as a named last-resort exception despite being ~85km. No relocation, and no hybrid role tied to any other city.
+- Must involve building/scaling, not a role dominated by pure maintenance of existing systems
+
+### Career Goals
+- Continue on the CTO / VP Engineering / Engineering Director track
+- Move toward larger-scale organizations - owning a bigger slice of a larger engineering org rather than being the sole tech exec of an early-stage startup
+- Salary baseline: ~EUR 130k/year (for benchmarking, not a hard floor)
 
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)
