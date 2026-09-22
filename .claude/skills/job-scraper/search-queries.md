@@ -18,13 +18,23 @@ Primary (default + German-market CLIs):
 - **stepstone.de** - Germany's largest general job board; covered by `stepstone-search` CLI (page 1 only, no age filter - see its SKILL.md)
 - **de.indeed.com** - covered by `indeed-de-search` CLI (search only; `detail` sits outside Indeed's robots.txt allowance for a generic bot - personal use only, see its SKILL.md)
 - **xing.com** - DACH-region professional network; covered by `xing-search` CLI (its job-search path sits outside Xing's robots.txt allowance for a generic bot - personal use only, see its SKILL.md)
+- **jobboerse.arbeitsagentur.de** - official German federal job board (Bundesagentur für Arbeit); broadest German-market coverage including public-sector/government postings; covered by `arbeitsagentur-search` CLI via BA's public JSON API (personal use only, see its SKILL.md)
+- **michaelpage.de** - Michael Page Germany, an executive/professional recruitment agency's public job board; strong fit for CTO/VP/Director-level searches; covered by `michaelpage-search` CLI (robots.txt-compliant for search and detail, no personal-use warning needed - see its SKILL.md; note its `company` field is always `null` since the agency withholds the real employer)
+- **landing.jobs** - European tech-jobs board, strong Portugal/startup-scale-up and remote-friendly coverage; covered by `landingjobs-search` CLI (robots.txt-compliant, searches via the site's public sitemap index rather than its disallowed search endpoint - see its SKILL.md; niche IC-skewed inventory - weak fit for this profile's executive-level target queries, but useful for broader Priority 4 sweeps)
+- **experteer.de** - Germany's leading executive/senior-level job board (director, VP, C-level, Geschäftsführer); covered by `experteer-search` CLI (fully robots.txt-compliant for search and detail, no personal-use warning needed - see its SKILL.md; its `company` field is always `null` in search results too - Experteer gates the employer name behind a signup wall, but it IS available via `detail`); particularly relevant given Roman's CTO/VP/Director target roles
+- **jobs.meinestadt.de** - general German local-classifieds portal with broad nationwide job-listing coverage; covered by `meinestadt-search` CLI (fully robots.txt-compliant for search and detail, no personal-use warning needed - see its SKILL.md; it has no free-text search parameter, so `--query` is resolved to the closest match in the portal's own German occupation-category taxonomy - English terms like "CTO" typically return zero results, use "Geschäftsführer"/"Director" or the German equivalent of the target role instead)
 
 Secondary (company career pages via Google):
 - Direct Google searches with `site:` filters; no specific target companies tracked - casting a wide net rather than monitoring named employers
-- Fallback `site:` filters for the three German-market portals, in case a CLI is temporarily unavailable:
+- Fallback `site:` filters for the German-market portals, in case a CLI is temporarily unavailable:
   - `site:stepstone.de "<role>"`
   - `site:de.indeed.com "<role>"`
   - `site:xing.com/jobs "<role>"`
+  - `site:arbeitsagentur.de "<role>"`
+  - `site:michaelpage.de/job-detail "<role>"`
+  - `site:experteer.de "<role>"`
+  - `site:landing.jobs/at "<role>"`
+  - `site:jobs.meinestadt.de "<role>"` (use the German equivalent of `<role>` - this portal has no English/keyword-agnostic search)
 
 ## Query Categories
 
@@ -76,10 +86,19 @@ site:linkedin.com/jobs "Engineering Manager" Kubernetes remote Germany
 
 Home base: Türkheim, Bavaria (86842). Remote-first search; a hybrid role is only acceptable if the office sits within roughly 50km of Türkheim - Munich is a named exception (see below) despite being further. Define acceptable areas:
 - Fully remote (Germany, EU, or global) - ideal
-- Hybrid with office in Augsburg, Memmingen, or Mindelheim (all within ~50km of Türkheim) - acceptable
-- Hybrid with office in Munich - acceptable as a last resort despite exceeding 50km (~85km) - explicitly named exception, not a blanket "Munich area" allowance
+- Hybrid (genuine remote-days component) with office in Augsburg, Memmingen, Mindelheim, or Landsberg am Lech (all within ~50km of Türkheim) - acceptable
+- Hybrid (genuine remote-days component) with office in Munich - acceptable as a last resort despite exceeding 50km (~85km) - explicitly named exception, not a blanket "Munich area" allowance
 - Hybrid with office anywhere else, or any role requiring relocation - too far (deal-breaker, see CLAUDE.md) - do not present these as medium/high fit even if skills match well
-- When a posting's remote/hybrid policy is unclear from the listing, flag it rather than assuming either way
+- **Pure onsite (no remote days at all) in any city, including Munich and the near cities - deal-breaker, never rescued by the city being on the approved list.** Don't infer hybrid from a city name alone.
+- When a posting's remote/hybrid/onsite policy is unclear from the listing, flag it rather than assuming either way
+
+## Seniority Filter
+
+Target scope is manager-of-managers or above (leads leads/managers, not only individual contributors) - see `04-job-evaluation.md`'s Seniority Gate. A posting whose org description makes clear it's a single layer of ICs, or explicitly has no direct team ownership, is a deal-breaker regardless of title. Scope not stated clearly is flagged, not excluded.
+
+## Compensation Filter
+
+Base compensation floor is EUR 140k/year - see `04-job-evaluation.md`'s Compensation Gate. A posting that states a base below that is a deal-breaker. Compensation not stated is flagged, not excluded.
 
 ## Language Filter
 

@@ -115,12 +115,19 @@ shown, not just fetched for high-fit jobs.** Resolution order:
    this natively) — use it as-is.
 2. The query's own `--remote`/mode filter, if the portal only returns results matching
    that filter (weak signal — confirm against the listing text when in doubt).
-3. Explicit wording in the title, snippet, or detail description ("remote", "hybrid",
-   "vor Ort", "Home Office", a specific office city named as a requirement).
-4. If none of the above resolve it, record `"Unknown"` rather than guessing either way
-   — an unresolved mode is itself information the user needs (see Step 5's Mode column
-   and `04-job-evaluation.md`'s Location & Logistics gate, which now flags "not stated"
-   separately from PASS/FAIL).
+3. Explicit wording in the **full detail description, read start to finish** — not a
+   keyword grep against a short fixed list ("remote", "hybrid", "vor Ort", "Home
+   Office"). Postings phrase this every way but the expected one: "Mobile work: two
+   days a week, on site three days" describes a hybrid arrangement without the word
+   "hybrid" anywhere in it, and a narrow regex over that text returns nothing —
+   confirmed live (CompuGroup Medical listings, 2026-09-04): grep-based scanning
+   missed the schedule entirely on both, and only reading the paragraph caught it.
+   The same applies to city names, seniority/team-structure statements, and
+   compensation figures — read the whole description for each gate, don't pattern-match.
+4. If a genuine read of the full text still doesn't resolve it, record `"Unknown"`
+   rather than guessing either way — an unresolved mode is itself information the
+   user needs (see Step 5's Mode column and `04-job-evaluation.md`'s Location &
+   Logistics gate, which flags "not stated" separately from PASS/FAIL).
 
 For a hybrid result, also capture **which city the office is in** — the Location &
 Logistics gate scores hybrid roles against a specific ~50km radius (plus a named Munich
@@ -151,7 +158,22 @@ For each new job, do a rapid fit check (NOT the full evaluation from `04-job-eva
 - **Medium match**: Role is adjacent to your experience
 - **Low match**: Role requires significant skills you lack
 
+**Before applying any override below, read the job's full detail description start to
+finish** — for every candidate that reaches this step, not just the ones that look
+promising from the title. Every override here (language, seniority, compensation,
+and Step 2's location/work-mode) depends on a fact stated somewhere in that text, and
+postings phrase these facts in whatever way the employer chose, not in the specific
+words a keyword search expects. Scanning for a fixed list of terms ("hybrid",
+"remote", "manager", "€") will silently miss a fact phrased differently and produce a
+false PASS or a false "not stated" — read the paragraph, don't pattern-match it.
+
 **Language override:** before assigning a match level, check the posting against `04-job-evaluation.md`'s Language Gate (a required language you haven't declared at all in your CLAUDE.md Languages table). A required language that's entirely undeclared overrides skill fit: mark it **Low** regardless of how well the skills align, and name it in the highlight bullets so it isn't buried under an otherwise-good-looking match. A **declared** language at a requirement that reads higher than your declared level is *not* an override — score fit normally, but add a red-flag bullet under that job's highlights (Step 5) quoting the posting's requirement next to your declared level, so the gap is visible without being auto-downgraded.
+
+**Seniority override:** check the posting against `04-job-evaluation.md`'s Seniority Gate (manager-of-managers or above). A posting that clearly describes a single layer of ICs with no management layer beneath, or explicitly no direct team ownership, overrides skill fit: mark it **Low** regardless of title match, and name it in the highlight bullets. Scope not stated clearly is a **FLAG**, not an override - score normally but note the ambiguity. **Small-team inference is also an override, not a FLAG:** a team under ~10-15 people where the role reports to another technical executive (a CTO/VP Eng/founder who isn't this hire) — e.g. a "Head of Engineering" hired underneath an existing CTO at a sub-15-person team — mark **Low** even without an explicit "no management layer" statement, since there's usually no room for one yet at that size. An explicit statement that leads/managers already report into the role overrides this inference back to a normal score.
+
+**Compensation override:** check the posting against `04-job-evaluation.md`'s Compensation Gate (EUR 140k/year base floor). A posting that states a base below that floor overrides skill fit: mark it **Low**, and name it in the highlight bullets. Compensation not stated is a **FLAG**, not an override - score normally but note it's unverified.
+
+**Domain override:** check the posting against `04-job-evaluation.md`'s Domain Gate (software/SaaS/data-platform domain, not physical/hardware product engineering). A role whose core responsibilities are semiconductor/test-equipment manufacturing, industrial/mechanical engineering, automotive hardware, or process/plant engineering overrides skill fit: mark it **Low** even when the title and seniority match exactly (e.g. an exact "VP Engineering" title leading wafer-prober manufacturing is still Low) - read what the role actually owns day to day, not the job title alone. Genuinely unclear domain is a **FLAG**, not an override.
 
 ### Step 4: Deduplicate & Store
 

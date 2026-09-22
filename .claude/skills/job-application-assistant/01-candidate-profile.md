@@ -16,7 +16,7 @@ framework_version: 1.1.1
 - **GitHub:** [YOUR_GITHUB_URL]
 - **Status:** Employed — Director of R&D at Similarweb (since Jan 2026), concurrently VP Technology at XPLN GmbH (since Feb 2022) during acquisition integration
 - **Citizenship:** German
-- **Constraints:** Remote-first. Hybrid only acceptable within ~50km of Türkheim (86842) - Augsburg, Memmingen, or Mindelheim - or Munich (~85km) as a named last-resort exception. No relocation, and no hybrid role tied to any other city.
+- **Constraints:** Remote-first. Hybrid only acceptable within ~50km of Türkheim (86842) - Augsburg, Memmingen, Mindelheim, or Landsberg am Lech - or Munich (~85km) as a named last-resort exception. Pure onsite (no remote days) is a deal-breaker regardless of city, including Munich and the near cities - only fully remote or genuine hybrid (a few days/week from home) qualifies. No relocation, and no hybrid role tied to any other city. Role must be "manager of managers" scope (leads leads/managers, not only individual contributors). Base compensation floor: EUR 140k/year - hard requirement.
 - **CV language:** English
 
 ### Languages

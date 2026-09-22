@@ -6,6 +6,8 @@ framework_version: 1.2.6
 
 <!-- SETUP: Skill match areas and career goals are personalized by running /setup -->
 
+**Read the full posting text before running any gate below.** Every gate here (Eligibility, Language, Seniority, Compensation, Location & Logistics) checks a fact that has to be found *somewhere in the posting's actual wording*, not confirmed by scanning for a fixed set of expected keywords. Employers phrase the same fact many ways: a hybrid schedule can read "Mobile work: two days a week, on site three days" with no occurrence of "hybrid" or "remote" anywhere in the text - a keyword search over that description finds nothing and produces a false "not stated," when a plain read of the paragraph resolves it immediately (confirmed live, CompuGroup Medical listings, 2026-09-04). Read the description start to finish for each gate; treat a fact as genuinely unstated only after doing that, not after a term-list scan comes up empty.
+
 ## Eligibility Gate — run before scoring
 
 If the candidate is not a citizen or permanent resident of the country they are applying in, run this first. It is a hard filter, not a scoring dimension, and it is separate from work-permit *timing*: timing asks "can they work the required hours yet?", eligibility asks "are they permitted to hold this job at all?". A candidate can pass timing and still be categorically excluded.
@@ -46,6 +48,41 @@ Judge the level comparison the same way you judge everything else in this framew
 
 **Worked example:** a candidate whose Languages table lists Spanish (Native) and English (B1/B2). A posting requiring "fluent Russian" → **FAIL**, Russian isn't declared at all. A posting requiring "fluent English" → **FLAG**, English is declared but "fluent" plausibly exceeds B1/B2 — score and draft the application, but tell the candidate this posting's bar may be a stretch and let them decide. A posting requiring "conversational English" or unspecified English → **PASS**, B1/B2 clears a "conversational" bar cleanly.
 
+## Seniority Gate — run before scoring
+
+Roman's target scope is **manager of managers or above**: leading people who themselves lead others (team leads, engineering managers, or higher) — not a single layer of individual contributors reporting directly. This is a hard filter, structured the same way as the Eligibility and Language gates above.
+
+Read the posting's team/org description and classify:
+
+| Posting description | Verdict |
+|---|---|
+| Explicitly or clearly implies a management layer beneath the role (leads leads, managers, squad leads, or a "Director of Engineering Managers"-style org; a large distributed org where direct reports are themselves managers) | **PASS** |
+| Explicitly a single layer of ICs with no management layer beneath, or explicitly no direct team ownership at all (a pure governance/standards role with no reports) | **FAIL — hard stop.** Do not score, do not draft. |
+| Team size/structure not stated clearly enough to tell | **FLAG, then proceed.** Note the ambiguity for the user rather than guessing either way. |
+| **Small-team inference:** the posting states (or implies) a team under ~10-15 people **and** the role reports to another technical executive (a CTO, VP Eng, or founder who isn't this hire) rather than being the top technical role itself | **FAIL, not FLAG.** At that size there usually isn't room for a management layer between this role and the ICs yet - a "Head of Engineering" or similar hired *under* an existing CTO/VP Eng at a sub-15-person team is managing individual contributors, not managers, regardless of title. This inference is a heuristic, not a certainty - if the posting explicitly describes existing team leads/managers reporting into the role despite the small size, that explicit statement overrides the inference and the role PASSes. |
+
+## Compensation Gate — run before scoring
+
+Roman's base compensation floor is **EUR 140k/year** — a hard requirement, not a benchmarking baseline.
+
+| Posting compensation | Verdict |
+|---|---|
+| States a base salary or range at or above EUR 140k/year | **PASS** |
+| States a base salary or range below EUR 140k/year | **FAIL — hard stop.** Do not score, do not draft. |
+| Compensation not stated in the posting | **FLAG, then proceed.** Note as unverified rather than assuming it clears the floor - check via `salary_lookup.py` (Scoring Dimension 6 below) or ask before drafting. |
+
+## Domain Gate — run before scoring
+
+Roman's domain is **software / SaaS / data & analytics platforms**. A role centered on **physical/hardware product engineering** - semiconductor or test-equipment manufacturing, industrial/mechanical engineering, automotive hardware, process/plant engineering, chemistry or materials-science R&D - is a fundamental mismatch, not just a stretch worth flagging, even when the seniority and title match exactly (a "VP Engineering" leading wafer-prober manufacturing is not the same domain as a "VP Engineering" leading a SaaS platform).
+
+Read what the role actually owns day to day, not just the company's industry label - a hardware company can still have a genuine software/platform engineering leadership opening (that passes this gate), and a software company can post a hardware-adjacent embedded role (that fails it). Judge the posting's own listed responsibilities.
+
+| Posting's core engineering focus | Verdict |
+|---|---|
+| Software, SaaS, data/analytics platforms, cloud infrastructure, or a digital product built on top of a physical industry (e.g. a construction-tech or energy-tech SaaS platform) | **PASS** |
+| Physical/hardware product engineering as the primary responsibility (manufacturing yield, NPI for physical hardware, process/plant engineering, mechanical/materials design) | **FAIL — hard stop.** Mark **Low** regardless of title or seniority match. |
+| Genuinely mixed or unclear from the posting | **FLAG, then proceed.** Note the ambiguity rather than guessing either way. |
+
 ## Scoring Dimensions
 
 Evaluate each job posting against these five dimensions:
@@ -63,6 +100,7 @@ How well do the required/preferred skills align with the candidate's capabilitie
 **Strong match areas:** Engineering leadership (hiring, budget, org-building from zero), technology strategy, technical due diligence/M&A, microservices/SOA architecture, Kubernetes and cloud-hybrid infrastructure, PHP, remote-first distributed team leadership
 **Moderate match areas:** Python/ML tooling (scikit-learn, categorization pipelines), React Native mobile delivery, Java/Angular (recent stack at Similarweb/XPLN), CI/CD and observability tooling
 **Weak match areas:** Large-scale enterprise governance/compliance processes (career has been startup/scale-up only), formal people-management frameworks beyond what a sole tech exec self-taught
+**Fundamental mismatch (see Domain Gate above):** physical/hardware product engineering - semiconductor/test-equipment manufacturing, industrial/mechanical engineering, automotive hardware, process/plant engineering
 
 ### 2. Experience Match (0-100)
 Does work history align with what they're looking for? Match on the function and nature of the work performed, not the literal job title - a "Data Consultant" and a "Data Scientist" role can be functionally identical.
@@ -95,10 +133,11 @@ Does the role and company culture match the behavioral profile?
 Home base: Türkheim, Bavaria (86842).
 
 - Fully remote: PASS
-- Hybrid with office in Augsburg, Memmingen, or Mindelheim (~50km of Türkheim): PASS
-- Hybrid with office in Munich (~85km): PASS - named last-resort exception, not a blanket "Munich area" allowance
+- Hybrid (genuine remote-days component, e.g. 2-3 days/week from home) with office in Augsburg, Memmingen, Mindelheim, or Landsberg am Lech (~50km of Türkheim): PASS
+- Hybrid (genuine remote-days component) with office in Munich (~85km): PASS - named last-resort exception, not a blanket "Munich area" allowance
 - Hybrid with office in any other city, or requires relocation: FAIL (deal-breaker) - do not round up to PASS on skill/culture strength alone
-- Remote/hybrid policy not stated in the posting: FLAG - note as unverified and check before drafting, don't assume either way
+- **Pure onsite (no remote/work-from-home days) in ANY city, including Munich and the near cities above: FAIL (deal-breaker).** The Munich/near-city exception applies only to genuine hybrid arrangements - it never rescues a role that requires being in the office every working day. Don't infer "hybrid" from a city name alone; confirm the posting actually describes a remote-days component.
+- Remote/hybrid/onsite policy not stated in the posting: FLAG - note as unverified and check before drafting, don't assume either way
 - Frequent international travel: FLAG (discuss with user)
 
 ### 5. Career Alignment & Motivation (0-100)
@@ -122,8 +161,9 @@ Does this role advance career goals and contain tasks that energize?
 - Non-task factors: remote-first / distributed-team culture, leadership by example, autonomy with direct executive access
 
 **Life situation alignment:** Consider personal constraints:
-- **Security**: Baseline compensation expectation around EUR 130k/year for benchmarking - not a hard floor, discuss per offer
-- **Flexibility**: Remote-first; hybrid only within ~50km of Türkheim (86842) - Augsburg, Memmingen, Mindelheim - or Munich (~85km) as a named last-resort exception; no relocation
+- **Security**: Base compensation floor of EUR 140k/year - hard requirement (see Compensation Gate above), not just a benchmark
+- **Flexibility**: Remote-first; hybrid only within ~50km of Türkheim (86842) - Augsburg, Memmingen, Mindelheim, Landsberg am Lech - or Munich (~85km) as a named last-resort exception; no relocation
+- **Scope**: Manager-of-managers or above (see Seniority Gate above) - not a single layer of individual contributors
 - **Professional development**: Prioritizes roles that grow scope within larger organizations while staying hands-on with architecture
 
 ### 6. Salary Benchmark (Optional)

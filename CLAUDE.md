@@ -12,7 +12,7 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 
 ### Identity
 - **Name:** Roman Ignatov
-- **Location:** Türkheim, Bavaria, Germany, 86842 (remote-first; hybrid acceptable only within ~50km - Augsburg, Memmingen, Mindelheim - with Munich (~85km) allowed as a last-resort exception)
+- **Location:** Türkheim, Bavaria, Germany, 86842 (remote-first; hybrid acceptable only within ~50km - Augsburg, Memmingen, Mindelheim, Landsberg am Lech - with Munich (~85km) allowed as a last-resort exception)
 - **Languages:**
   | Language | Level |
   |----------|-------|
@@ -82,13 +82,16 @@ None reported.
 ### Deal-breakers
 <!-- Hard constraints on job search. Language requirements are handled separately and
 automatically from your Languages table above - don't duplicate them here. -->
-- Must be remote or remote-first. A hybrid role is only acceptable if the office is within ~50km of Türkheim (86842) - Augsburg, Memmingen, or Mindelheim - or Munich as a named last-resort exception despite being ~85km. No relocation, and no hybrid role tied to any other city.
+- Must be remote or remote-first. A hybrid role is only acceptable if the office is within ~50km of Türkheim (86842) - Augsburg, Memmingen, Mindelheim, or Landsberg am Lech - or Munich as a named last-resort exception despite being ~85km. No relocation, and no hybrid role tied to any other city.
+- Pure onsite (no remote/work-from-home component - commuting to an office every working day) is a deal-breaker regardless of city, including Munich and the near cities above. Only fully remote or genuine hybrid (a few days per week from home) qualifies - "hybrid in Munich" does not rescue a role that is actually onsite.
 - Must involve building/scaling, not a role dominated by pure maintenance of existing systems
+- Must be "manager of managers" scope - leads people who themselves lead others (team leads, engineering managers, or higher), not a single layer of individual contributors reporting directly. A role whose management depth is not stated is flagged for judgment, not auto-rejected - see `04-job-evaluation.md`'s Seniority Gate.
+- Base compensation must be at least EUR 140k/year. A posting silent on compensation is flagged for judgment, not auto-rejected - see `04-job-evaluation.md`'s Compensation Gate.
 
 ### Career Goals
 - Continue on the CTO / VP Engineering / Engineering Director track
 - Move toward larger-scale organizations - owning a bigger slice of a larger engineering org rather than being the sole tech exec of an early-stage startup
-- Salary baseline: ~EUR 130k/year (for benchmarking, not a hard floor)
+- Salary floor: EUR 140k/year base - hard requirement, not just a benchmark (see Deal-breakers above)
 
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)
